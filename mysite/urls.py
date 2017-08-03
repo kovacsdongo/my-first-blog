@@ -17,7 +17,17 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include, url
 
+'''
+url összeillesztés
+^ a szöveg eleje
+$ a szöveg vége
+\d számjegy
++ ez azt jelzi, hogy az előző elem egynél többször ismétlődik
+() ez a minta egy részét fogja össze
+'''
 urlpatterns = [
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', admin.site.urls),
+    #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('blog.urls')),
+    #url(r'^post/(\d+)/$'),
 ]
